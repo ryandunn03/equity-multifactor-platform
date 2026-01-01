@@ -41,10 +41,10 @@ Version History:
     1.0.0 (2024-01-01): Initial release with momentum factor
 """
 
-from .base import BaseFactor
-from .momentum import MomentumFactor, compute_momentum
-from .normalizer import SectorNormalizer
-from .compositor import FactorCompositor
+from src.factors.base import BaseFactor
+from src.factors.momentum import MomentumFactor, compute_momentum
+from src.factors.normalizer import SectorNormalizer
+from src.factors.compositor import FactorCompositor
 
 __version__ = "1.0.0"
 

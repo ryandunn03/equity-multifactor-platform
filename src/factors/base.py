@@ -10,8 +10,8 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Any
 import pandas as pd
 
-from ..utils.logging_config import get_logger
-from ..utils.exceptions import DataError, InsufficientDataError
+from src.utils.logging_config import get_logger
+from src.utils.exceptions import DataError, InsufficientDataError
 
 logger = get_logger(__name__)
 

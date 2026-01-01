@@ -11,8 +11,8 @@ import pandas as pd
 import numpy as np
 from scipy.stats import spearmanr
 
-from ..utils.logging_config import get_logger
-from ..utils.exceptions import DataError
+from src.utils.logging_config import get_logger
+from src.utils.exceptions import DataError
 
 logger = get_logger(__name__)
 
