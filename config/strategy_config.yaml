@@ -1,0 +1,34 @@
+# Strategy Configuration
+# Configuration for factor-based equity strategies
+
+factors:
+  momentum:
+    lookback_months: 12
+    skip_months: 1
+    enabled: true
+    weight: 1.0
+
+normalization:
+  method: sector_relative
+  winsorize_percentile: 1
+  handle_missing: neutral
+
+factor_combination:
+  method: equal_weighted
+  ic_lookback_months: 12
+  shrinkage: 0.4
+  min_ic_threshold: 0.0
+
+portfolio:
+  universe_size: 500
+  long_pct: 0.3
+  short_pct: 0.3
+  rebalance_frequency: monthly
+  position_sizing: equal_weight
+
+backtest:
+  start_date: 2010-01-01
+  end_date: 2023-12-31
+  initial_capital: 10000000
+  transaction_cost_bps: 10
+  slippage_bps: 5

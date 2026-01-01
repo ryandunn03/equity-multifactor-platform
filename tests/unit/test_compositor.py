@@ -107,10 +107,10 @@ def test_compositor_ic_weighted_fallback(sample_normalized_scores, compositor_co
 def test_compositor_update_ic_history():
     """Test IC history update."""
     scores = pd.DataFrame({
-        'momentum': [0.5, -0.3, 1.2, -0.8, 0.2],
-        'value': [-0.2, 0.8, 0.1, -0.5, 0.3],
-    }, index=['A', 'B', 'C', 'D', 'E'])
-    
+        'momentum': [0.5, -0.3, 1.2, -0.8, 0.2, 0.7, -0.5, 0.9, -0.2, 0.4, 0.1],
+        'value': [-0.2, 0.8, 0.1, -0.5, 0.3, 0.6, -0.4, 0.2, -0.1, 0.5, -0.3],
+    }, index=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'])
+
     # Simulate forward returns (momentum works, value doesn't)
     forward_returns = pd.Series({
         'A': 0.05,   # High momentum → positive return
@@ -118,6 +118,12 @@ def test_compositor_update_ic_history():
         'C': 0.10,   # High momentum → positive return
         'D': -0.05,  # Low momentum → negative return
         'E': 0.01,   # Low momentum → small positive
+        'F': 0.06,   # High momentum → positive return
+        'G': -0.04,  # Low momentum → negative return
+        'H': 0.08,   # High momentum → positive return
+        'I': -0.01,  # Low momentum → negative return
+        'J': 0.03,   # Medium momentum → small positive
+        'K': 0.02,   # Low momentum → small positive
     })
     
     config = {
@@ -168,15 +174,20 @@ def test_compositor_ic_computation():
     """Test IC calculation (Spearman correlation)."""
     # Perfect positive correlation
     scores_pos = pd.DataFrame({
-        'factor': [1, 2, 3, 4, 5],
-    }, index=['A', 'B', 'C', 'D', 'E'])
-    
+        'factor': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    }, index=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'])
+
     returns_pos = pd.Series({
         'A': 0.01,
         'B': 0.02,
         'C': 0.03,
         'D': 0.04,
         'E': 0.05,
+        'F': 0.06,
+        'G': 0.07,
+        'H': 0.08,
+        'I': 0.09,
+        'J': 0.10,
     })
     
     config = {'method': 'ic_weighted', 'ic_lookback_months': 12, 'shrinkage': 0.0}

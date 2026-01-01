@@ -440,7 +440,7 @@ def test_pipeline_realistic_backtest_simulation():
     
     # Simulate monthly rebalances
     rebalance_dates = pd.date_range(
-        dates[252],  # Start after sufficient history
+        dates[290],  # Start after sufficient history (12m + 1m skip + 30d buffer)
         dates[-1],
         freq='M'
     )
