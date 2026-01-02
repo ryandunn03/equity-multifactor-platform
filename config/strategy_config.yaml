@@ -8,6 +8,37 @@ factors:
     enabled: true
     weight: 1.0
 
+  value:
+    weight_book_to_market: 0.5
+    weight_earnings_yield: 0.5
+    enabled: true
+    weight: 1.0
+
+  quality:
+    weight_roe: 0.4
+    weight_profit_margin: 0.3
+    weight_leverage: 0.3
+    enabled: true
+    weight: 1.0
+
+  volatility:
+    lookback_days: 60
+    annualize: true
+    enabled: true
+    weight: 1.0
+
+  size:
+    use_log: true
+    enabled: true
+    weight: 1.0
+
+  growth:
+    weight_revenue_growth: 0.5
+    weight_earnings_growth: 0.5
+    lookback_quarters: 4
+    enabled: true
+    weight: 1.0
+
 normalization:
   method: sector_relative
   winsorize_percentile: 1
